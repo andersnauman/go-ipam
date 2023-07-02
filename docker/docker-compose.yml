@@ -9,7 +9,7 @@ services:
     image: mariadb
     environment:
       MARIADB_ROOT_PASSWORD: pwd
-      MARIADB_DATABASE: ipam
+      MARIADB_DATABASE: recordings
       MARIADB_USER: user
       MARIADB_PASSWORD: password
     volumes:
