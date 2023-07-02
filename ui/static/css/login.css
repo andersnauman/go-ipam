@@ -1,0 +1,96 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    background-color: #cfcfd1;
+}
+
+a:link, 
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+#box {
+    display: flex;
+    flex-direction: row;
+    min-height: 250px;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
+}
+
+div#login-container {
+    width: 300px;
+    height: inherit;
+    padding: 15px;
+    color: #2d4150;
+    background-color: #ffffff;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+  
+div#login-container h2 {
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 15px;
+    width: 100%;
+}
+
+div#login-container > form > *:first-child {
+    text-align: center;
+}
+  
+div#login-container > form > *:not(:first-child) {
+    margin: 0px 10px 15px 10px;
+}
+  
+div#login-container > * {
+    width: calc(100% - 20px);
+}
+  
+div#login-container > div:first-child {
+    margin: 0px 0px 8px 0px;
+}
+  
+div#login-container input[type=text],
+div#login-container input[type=password] {
+    color: inherit;
+    border: 0px;
+    width: 100%;
+    font-size: 0.8em;
+    background: none;
+    padding: 10px 0px;
+    outline: none;
+    border-bottom: 1px solid #2d4150;
+}
+
+div#login-container button {
+    width: 100%;
+    height: 45px;
+    background-color: #2d4150;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+  
+div#login-container button:hover {
+    background-color: #1e212d;
+}
+
+div#disclaimer {
+    padding: 7px;
+    color: #676767;
+    font-size: 0.9em;
+}
+  

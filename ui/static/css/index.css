@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: #b19f9e;
+    font-weight: lighter;
+    min-height: 100svh;
+    background-color: #cfcfd1;
+    display: flex;
+    flex-direction: column;
+    font-family: tahoma;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    background-color: #2d3040;
+}
+
+header > div,
+nav > div {
+    display: flex;
+    align-items: center;    
+    padding: 8px 20px;
+}
+
+header > div.last {
+    margin-left: auto;
+}
+
+header > div.link-item,
+header > div.name {
+    color: #ffffff;
+}
+
+header > div:hover.link-item,
+nav > div:hover {
+    background-color: #1e212d;
+    color: #ffffff;
+}
+
+header > div .material-symbols-outlined,
+nav > div .material-symbols-outlined {
+    font-size: 1.9em;
+    font-weight: 200;
+    cursor: pointer;    
+}
+
+header > div.selected,
+nav > div.selected {
+    color: #ededed;
+    /*background-color: #324858;*/
+    background-color: #2d4150;
+}
+
+div.main {
+    display: flex;
+    flex-direction: row;    
+    flex: 1 1 auto;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #2d3040;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    color: #000000;
+    width: 100%;
+}
+
+main > * {
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #d9d6d6;    
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+main > div > div:first-child {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 18px;
+}
+main > div > div:first-child > span:last-child {
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    overflow: hidden;
+}
+
+th {
+    text-align: left;
+    font-size: 0.6em;
+    font-weight: bold;
+    color: #aaaaaa;
+    text-transform: uppercase;
+}
+
+td, th {
+    padding: 13px 20px;
+    border-bottom: 1px solid #d9d6d6;
+}
+
+tr:last-child > td {
+    border: 0px;
+}
+
+td {
+    font-size: 0.7em;
+}
+
+td.center {
+    text-align:center
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    padding: 10px;
+    text-align: center;
+    color: gray;
+    font-size: 0.8em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+label {
+    padding-right: 10px;
+}
+
+select {
+    border-radius: 3px;
+    padding: 2px;    
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}

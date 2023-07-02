@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: ../
+      dockerfile: ./Dockerfile
+  db:
+    image: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: pwd
+      MARIADB_DATABASE: ipam
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
+    volumes:
+      - datadir:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+volumes:
+  datadir:

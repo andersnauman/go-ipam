@@ -1,0 +1,70 @@
+{{ define "header" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/icons/material/material.css">
+    <link rel="stylesheet" href="static/icons/flags/flag-icons.min.css">
+    <link rel="stylesheet" href="static/map/leaflet.css">
+    <link rel="shortcut icon" href="static/icons/favicon.png">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header class="header">
+        <div class="link-item">
+            <span class="material-symbols-outlined" title="Menu">menu</span>
+        </div>
+        <div class="name">
+            <span>IPAM</span>
+        </div>
+        <div class="last">
+            <label for="organization-select">Organization:</label>
+            <select name="organization" id="organization-select">
+                <option value="default">Default</option>
+                <option value="company_1">Company 1</option>
+            </select>
+        </div>
+        <div>
+            <span>Bob the user</span>
+            <span class="material-symbols-outlined" title="Expand">more_vert</span>
+        </div>
+    </header>
+    <div class="main">
+        <nav class="left-menu">
+            <div>
+                <a href="/">
+                    <span class="material-symbols-outlined" title="Home">home</span>
+                </a>
+            </div>        
+            <div class="selected">
+                <a href="/subnets">
+                    <span class="material-symbols-outlined" title="Subnets">account_tree</span>
+                </a>
+            </div>
+            <div>
+                <a href="/devices">
+                    <span class="material-symbols-outlined" title="Devices">computer</span>
+                </a>
+            </div>
+            <div>
+                <a href="/locations">
+                    <span class="material-symbols-outlined" title="Locations">map</span>
+                </a>
+            </div>
+            <div>
+                <a href="/categories">
+                    <span class="material-symbols-outlined" title="Categories">category</span>
+                </a>
+            </div>
+            <div>
+                <a href="/features">
+                    <span class="material-symbols-outlined" title="Features">manage_search</span>
+                </a>
+            </div>
+            <div>
+                <a href="/settings">
+                    <span class="material-symbols-outlined" title="Settings">settings</span>
+                </a>
+            </div>
+        </nav>
+{{ end }}
