@@ -3,7 +3,6 @@ package config
 import (
 	"encoding/json"
 	"log"
-	"net"
 	"os"
 )
 
@@ -13,7 +12,7 @@ type settings struct {
 }
 
 type webserver struct {
-	IP   net.IP `json:"ip"`
+	IP   string `json:"ip"`
 	Port int    `json:"port"`
 }
 

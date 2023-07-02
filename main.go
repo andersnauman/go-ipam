@@ -95,6 +95,7 @@ func main() {
 
 	http.Handle("/", mux)
 	http.HandleFunc("/favicon.ico", returnFavicon)
-	addr := fmt.Sprintf("%s:%d", settings.Webserver.IP.String(), settings.Webserver.Port)
+	addr := fmt.Sprintf("%s:%d", settings.Webserver.IP, settings.Webserver.Port)
+	log.Printf(addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
 }
