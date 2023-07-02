@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/go-sql-driver/mysql"
 
@@ -55,9 +56,15 @@ func main() {
 	if err != nil {
 		log.Fatal("noooo")
 	}
-	pingErr := mux.DBpool.Ping()
-	if pingErr != nil {
-		log.Fatal(pingErr)
+
+	for {
+		pingErr := mux.DBpool.Ping()
+		if pingErr == nil {
+			break
+		} else {
+			log.Fatal(pingErr)
+			time.Sleep(2 * time.Second)
+		}
 	}
 
 	rows, err := mux.DBpool.Query("SELECT * FROM album WHERE artist = ?", "John Coltrane")
