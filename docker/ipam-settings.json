@@ -8,6 +8,7 @@
         "pass":   "password",
         "net":    "tcp",
         "addr":   "db:3306",
-        "dbname": "recordings"
+        "dbname": "recordings",
+        "allownativepasswords": true
     }
 }

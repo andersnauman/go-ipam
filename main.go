@@ -43,11 +43,12 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
 	cfg := mysql.Config{
-		User:   settings.SQL.User,
-		Passwd: settings.SQL.Passwd,
-		Net:    settings.SQL.Net,
-		Addr:   settings.SQL.Addr,
-		DBName: settings.SQL.DBName,
+		User:                 settings.SQL.User,
+		Passwd:               settings.SQL.Passwd,
+		Net:                  settings.SQL.Net,
+		Addr:                 settings.SQL.Addr,
+		DBName:               settings.SQL.DBName,
+		AllowNativePasswords: settings.SQL.AllowNativePasswords,
 	}
 
 	mux := &MUX{}

@@ -18,12 +18,13 @@ type webserver struct {
 }
 
 type sql struct {
-	User   string            `json:"user"`
-	Passwd string            `json:"pass"`
-	Net    string            `json:"net"`
-	Addr   string            `json:"addr"`
-	DBName string            `json:"dbname"`
-	Params map[string]string `json:"params"`
+	User                 string            `json:"user"`
+	Passwd               string            `json:"pass"`
+	Net                  string            `json:"net"`
+	Addr                 string            `json:"addr"`
+	DBName               string            `json:"dbname"`
+	Params               map[string]string `json:"params"`
+	AllowNativePasswords bool              `json:"allownativepasswords"`
 }
 
 var Settings settings
