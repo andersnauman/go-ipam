@@ -62,7 +62,7 @@ func main() {
 		if pingErr == nil {
 			break
 		} else {
-			log.Fatal(pingErr)
+			log.Printf("%s", pingErr.Error())
 			time.Sleep(2 * time.Second)
 		}
 	}
