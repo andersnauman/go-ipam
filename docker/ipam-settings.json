@@ -1,0 +1,13 @@
+{
+    "webserver": {
+      "ip":     "127.0.0.1",
+      "port":   8080
+    },
+    "sql": {
+        "user":     "root",
+        "pass":     "password",
+        "net":      "tcp",
+        "addr":     "db:3306",
+        "dbname":   "recordings"
+    }
+}

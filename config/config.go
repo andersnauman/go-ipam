@@ -2,7 +2,7 @@ package config
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"net"
 	"os"
 )
@@ -32,15 +32,20 @@ var Settings settings
 func init() {
 	var file []byte
 	var err error
-	file, err = os.ReadFile("config/settings.json")
+
+	if _, err = os.Stat("/etc/settings.json"); err == nil {
+		file, err = os.ReadFile("/etc/settings.json")
+	} else {
+		file, err = os.ReadFile("config/settings.json")
+	}
 
 	if err != nil {
-		fmt.Printf("[!] " + err.Error())
+		log.Printf("[!] " + err.Error())
 		os.Exit(1)
 	}
 	err = json.Unmarshal(file, &Settings)
 	if err != nil {
-		fmt.Print("[!] " + err.Error())
+		log.Printf("[!] " + err.Error())
 		os.Exit(1)
 	}
 }

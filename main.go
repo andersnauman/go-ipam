@@ -78,7 +78,7 @@ func main() {
 			log.Fatal(fmt.Errorf("albumsByArtist %q: %v", "John Coltrane", err))
 			return
 		}
-		log.Fatal(fmt.Printf(alb.Title))
+		log.Printf(alb.Title)
 	}
 	if err := rows.Err(); err != nil {
 		log.Fatal(fmt.Errorf("albumsByArtist %q: %v", "John Coltrane", err))
