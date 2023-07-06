@@ -8,11 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-sql-driver/mysql"
-
 	"github.com/andersnauman/go-ipam/api"
 	"github.com/andersnauman/go-ipam/config"
 	"github.com/andersnauman/go-ipam/ui"
+	"github.com/go-sql-driver/mysql"
 )
 
 type MUX struct {
@@ -24,9 +23,9 @@ func (m MUX) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	switch strings.SplitN(r.URL.Path, "/", 3)[1] {
 	case "api":
-		service = api.Object{DatabasePool: nil}
+		service = api.Object{DatabasePool: m.DBpool}
 	default:
-		service = ui.Object{DatabasePool: nil}
+		service = ui.Object{DatabasePool: m.DBpool}
 	}
 
 	service.ServeHTTP(w, r)
@@ -49,6 +48,7 @@ func main() {
 		Addr:                 settings.SQL.Addr,
 		DBName:               settings.SQL.DBName,
 		AllowNativePasswords: settings.SQL.AllowNativePasswords,
+		ParseTime:            settings.SQL.ParseTime,
 	}
 
 	mux := &MUX{}
@@ -68,34 +68,9 @@ func main() {
 		}
 	}
 
-	rows, err := mux.DBpool.Query("SELECT * FROM album WHERE artist = ?", "John Coltrane")
-	if err != nil {
-		log.Fatal(fmt.Errorf("albumsByArtist %q: %v", "John Coltrane", err))
-		return
-	}
-	defer rows.Close()
-	type Album struct {
-		ID     int64
-		Title  string
-		Artist string
-		Price  float32
-	}
-	for rows.Next() {
-		var alb Album
-		if err := rows.Scan(&alb.ID, &alb.Title, &alb.Artist, &alb.Price); err != nil {
-			log.Fatal(fmt.Errorf("albumsByArtist %q: %v", "John Coltrane", err))
-			return
-		}
-		log.Printf(alb.Title)
-	}
-	if err := rows.Err(); err != nil {
-		log.Fatal(fmt.Errorf("albumsByArtist %q: %v", "John Coltrane", err))
-		return
-	}
-
 	http.Handle("/", mux)
 	http.HandleFunc("/favicon.ico", returnFavicon)
 	addr := fmt.Sprintf("%s:%d", settings.Webserver.IP, settings.Webserver.Port)
-	log.Printf(addr)
+	log.Printf("%s", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
 }

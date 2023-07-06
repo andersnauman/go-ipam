@@ -3,6 +3,33 @@
     <footer>
         <span><a href="">Github</a> | Version: 0.0.1</span>
     </footer>
+    <script>
+        $(document).ready(function() {
+            // Load and open the modal with information from the data-href attribute
+            $('.edit').on('click', function() {
+                console.log("hej");
+                var url = $(this).attr('data-href');
+                var modal = $('#modal');
+                modal.load(url);
+                modal.css({'display': 'flex'});
+            });
+
+            // Close the modal if the user click the 'X' icon
+            $(document).on('click', '#modal-close', function() {
+                $('#modal').css({'display': ''});
+                $('#modal').html('');
+            });
+
+            // Close the modal if the user click outside the modal-box
+            $(document).on('click', '#modal', function(e) {
+                if (e.target !== this) {
+                    return;
+                }
+                $('#modal').css({'display': ''});
+                $('#modal').html('');
+            });
+        });
+    </script>
 </body>
 </html>
 {{ end }}

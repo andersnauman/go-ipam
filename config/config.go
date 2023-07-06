@@ -24,6 +24,7 @@ type sql struct {
 	DBName               string            `json:"dbname"`
 	Params               map[string]string `json:"params"`
 	AllowNativePasswords bool              `json:"allownativepasswords"`
+	ParseTime            bool              `json:"parsetime"`
 }
 
 var Settings settings

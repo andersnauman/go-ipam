@@ -1,2 +1,10 @@
+github.com/andersnauman/go-ipam/api v0.0.0-20230702220342-5eeb20827180 h1:Jc2RZ1SClKX29vKA9wE8dD6gIHXUgzJxQNC2edcPzDs=
+github.com/andersnauman/go-ipam/api v0.0.0-20230702220342-5eeb20827180/go.mod h1:G8Xm1AkTt1yhwG/OtmscfUBNe8zJLSctmezoCu+64Sc=
+github.com/andersnauman/go-ipam/config v0.0.0-20230702220342-5eeb20827180 h1:4ehdlHV40no6zsxOyvUdvBKOEYsounbFcLXOWOsCMPo=
+github.com/andersnauman/go-ipam/config v0.0.0-20230702220342-5eeb20827180/go.mod h1:3D9rzvYK2MzeXZBM9/zZB/9ZrmxQPPV95kLgSpHrCAw=
+github.com/andersnauman/go-ipam/misc v0.0.0-20230702220342-5eeb20827180 h1:7znY7MSb5mz36nl5i68h3PhSLewb59hhguaXX47oEW4=
+github.com/andersnauman/go-ipam/misc v0.0.0-20230702220342-5eeb20827180/go.mod h1:qcxlXCHK6MiIdbVBKtu1NtkuCwQYSFWyt7Comy3oOg8=
+github.com/andersnauman/go-ipam/ui v0.0.0-20230702220342-5eeb20827180 h1:bDKSi3WC4axSuYILUKMV7G/FS7TyPH6D9pYTZDCkcWQ=
+github.com/andersnauman/go-ipam/ui v0.0.0-20230702220342-5eeb20827180/go.mod h1:DhDYGipbwSHMunEqqFjXP3ORn6ItehkcUPMJRD1r88w=
 github.com/go-sql-driver/mysql v1.7.1 h1:lUIinVbN1DY0xBg0eMOzmmtGoHwWBbvnWubQUrtU8EI=
 github.com/go-sql-driver/mysql v1.7.1/go.mod h1:OXbVy3sEdcQ2Doequ6Z5BW6fXNQTmx+9S1MCJN5yJMI=

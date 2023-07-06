@@ -1,0 +1,71 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal section {
+    color:  #000000;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #d9d6d6;    
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    min-width: 500px;
+}
+
+.modal section > div:first-child {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 18px;
+}
+
+.modal section > div:first-child > span:last-child {
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.modal section > table td:nth-child(2) {
+    text-align: right;
+}
+
+.modal section > table td {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.modal section > .buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 10px;
+}
+
+.modal section > .buttons > input,
+.modal section > .buttons > button {
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+button.submit {
+    color: white;
+    background-color: #616783;
+    border: 1px solid #2d2e40;
+    cursor: pointer;
+}
+
+button.reset {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}

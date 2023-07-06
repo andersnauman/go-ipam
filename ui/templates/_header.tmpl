@@ -3,13 +3,18 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/modal.css">
     <link rel="stylesheet" href="static/icons/material/material.css">
     <link rel="stylesheet" href="static/icons/flags/flag-icons.min.css">
     <link rel="stylesheet" href="static/map/leaflet.css">
     <link rel="shortcut icon" href="static/icons/favicon.png">
+    <script src="static/js/jquery.min.js"></script>
     <meta charset="UTF-8">
 </head>
 <body>
+    <div id="modal" class="modal">
+    <!-- Placeholder-->
+    </div>
     <header class="header">
         <div class="link-item">
             <span class="material-symbols-outlined" title="Menu">menu</span>
@@ -17,51 +22,56 @@
         <div class="name">
             <span>IPAM</span>
         </div>
-        <div class="last">
+        <div class="organization last">
             <label for="organization-select">Organization:</label>
             <select name="organization" id="organization-select">
                 <option value="default">Default</option>
                 <option value="company_1">Company 1</option>
             </select>
         </div>
-        <div>
-            <span>Bob the user</span>
-            <span class="material-symbols-outlined" title="Expand">more_vert</span>
+        <div class="user-info">
+            <span>{{ .User.FirstName }} {{ .User.LastName }}</span>
+            <span class="material-symbols-outlined" title="More options">account_circle</span>
         </div>
     </header>
     <div class="main">
         <nav class="left-menu">
-            <div>
+            <div {{ if eq .PageName "index" }} class="selected" {{ end }}>
                 <a href="/">
                     <span class="material-symbols-outlined" title="Home">home</span>
                 </a>
             </div>        
-            <div class="selected">
+            <div {{ if eq .PageName "subnets" }} class="selected" {{ end }}>
                 <a href="/subnets">
                     <span class="material-symbols-outlined" title="Subnets">account_tree</span>
                 </a>
             </div>
-            <div>
+            <div {{ if eq .PageName "devices" }} class="selected" {{ end }}>
                 <a href="/devices">
                     <span class="material-symbols-outlined" title="Devices">computer</span>
                 </a>
             </div>
-            <div>
+            <div {{ if eq .PageName "sites" }} class="selected" {{ end }}>
+                <a href="/sites">
+                    <span class="material-symbols-outlined" title="Sites">apartment</span>
+                </a>
+            </div>            
+            <div {{ if eq .PageName "locations" }} class="selected" {{ end }}>
                 <a href="/locations">
                     <span class="material-symbols-outlined" title="Locations">map</span>
                 </a>
             </div>
-            <div>
+            <div {{ if eq .PageName "categories" }} class="selected" {{ end }}>
                 <a href="/categories">
                     <span class="material-symbols-outlined" title="Categories">category</span>
                 </a>
             </div>
-            <div>
+            <div {{ if eq .PageName "features" }} class="selected" {{ end }}>
                 <a href="/features">
                     <span class="material-symbols-outlined" title="Features">manage_search</span>
                 </a>
             </div>
-            <div>
+            <div class="last{{ if eq .PageName "settings" }} selected{{ end }}">
                 <a href="/settings">
                     <span class="material-symbols-outlined" title="Settings">settings</span>
                 </a>

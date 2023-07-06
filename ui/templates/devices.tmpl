@@ -1,5 +1,125 @@
-{{ template "header" }}
-        <main>
-            <div>Devices</div>
+{{ template "header" . }}
+        <main class="devices">
+            <section class="table">
+                <div>
+                    <span>IP Addresses</span>
+                    <div class="dropdown-menu">
+                        <span class="material-symbols-outlined dropdown-button" title="More">more_vert</span>
+                        <div class="dropdown-content">
+                            <div>
+                                <span class="material-symbols-outlined" title="Add">add</span>
+                                <span>Add</span>
+                            </div>
+                            <div>
+                                <span class="material-symbols-outlined" title="Import data">upload</span>
+                                <span>Import (json)</span>
+                            </div>
+                            <div>
+                                <span class="material-symbols-outlined" title="Export data">download</span>
+                                <span>Export (json)</span>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>IP Address</th>
+                        <th>DNS</th>
+                        <th>Status</th>
+                        <th class="fill-space">Description</th>
+                        <th class="center">Actions</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>1.1.1.1</td>
+                        <td>host1.example.com</td>
+                        <td>Active</td>
+                        <td>DNS-server</td>
+                        <td class="actions center">
+                            <span class="material-symbols-outlined">refresh</span>
+                            <span class="material-symbols-outlined">edit</span>
+                            <span class="material-symbols-outlined">delete</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>1.1.1.2</td>
+                        <td>host2.example.com</td>
+                        <td>Active</td>
+                        <td>DNS-server</td>
+                        <td class="actions center">
+                            <span class="material-symbols-outlined">refresh</span>
+                            <span class="material-symbols-outlined edit" data-href="/modal/devices/1">edit</span>
+                            <span class="material-symbols-outlined">delete</span>
+                        </td>
+                    </tr>
+                    <tr class="free">
+                        <td></td>
+                        <td class="badge">
+                            <span class="badge badge-green">254 IPs</span>
+                        </td>
+                        <td></td>
+                        <td>Available</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </section>
+            <section class="summary">
+                <div>
+                    <span>Summary</span>
+                    <span class="material-symbols-outlined" title="More">more_vert</span>
+                </div>
+                <div class="description">
+                    <span>This is a description</span>
+                </div>
+                <table>
+                    <tr>
+                        <td>Subnet</td>
+                        <td>1.1.1.0/24</td>
+                    </tr>
+                    <tr>
+                        <td>VRF</td>
+                        <td>Default</td>
+                    </tr>
+                    <tr>
+                        <td>Vlan</td>
+                        <td>405 (interconnect-to-customer)</td>
+                    </tr>
+                    <tr>
+                        <td>Site</td>
+                        <td>Datahall 1</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>Stockholm</td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td><span class="fi fi-se"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Coordinates</td>
+                        <td>59.334591, 18.063240</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="map">
+                <div id="map"></div>
+            </section>
+            <script src="/static/map/leaflet.js"></script>
+            <script>
+                var map = L.map('map').setView([59.334591, 18.063240], 14);
+                var marker = L.marker([59.334591, 18.063240]).addTo(map);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);            
+            </script>                
         </main>  
 {{ template "footer" }}

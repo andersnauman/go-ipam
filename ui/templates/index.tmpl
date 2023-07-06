@@ -1,4 +1,4 @@
-{{ template "header" }}
+{{ template "header" . }}
         <main>
             <div class="table">
                 <div>
@@ -7,6 +7,8 @@
                 </div>
                 <table>
                     <tr>
+                        <th><input type="checkbox"></th>
+                        <th class="expand"></th>
                         <th>Subnet</th>
                         <th>Group</th>
                         <th>VRF</th>
@@ -15,6 +17,12 @@
                         <th>Customer</th>
                     </tr>
                     <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td class="expand">
+                            <span id="row-1" aria-expanded="false" onclick="toggle(this.id,'#row-1-1');" class="material-symbols-outlined">expand_more</span>
+                        </td>
                         <td>1.1.1.0/24</td>
                         <td>grupp-1</td>
                         <td>none</td>
@@ -24,7 +32,27 @@
                         </td>
                         <td>Company AB</td>
                     </tr>
+                    <tr id="row-1-1" class="hidden">
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td class="expand"></td>                    
+                        <td class="expand-1">1.1.2.0/25</td>
+                        <td>grupp-1</td>
+                        <td>none</td>
+                        <td>Stockholm</td> 
+                        <td class="center">
+                            <span class="fi fi-se"></span>
+                        </td>
+                        <td>Company AB</td>         
+                    </tr>
                     <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td class="expand">
+                            <span aria-expanded="false" class="material-symbols-outlined">expand_more</span>
+                        </td>                    
                         <td>1.1.2.0/24</td>
                         <td>grupp-1</td>
                         <td>none</td>
@@ -35,6 +63,12 @@
                         <td>Company AB</td>                    
                     </tr>
                     <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td class="expand">
+                            <span aria-expanded="false" class="material-symbols-outlined">expand_more</span>
+                        </td>                    
                         <td>1.1.3.0/24</td>
                         <td>grupp-1</td>
                         <td>none</td>
@@ -45,6 +79,12 @@
                         <td>Company AB</td>                    
                     </tr>
                     <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td class="expand">
+                            <span aria-expanded="false" class="material-symbols-outlined">expand_more</span>
+                        </td>                    
                         <td>1.1.4.0/24</td>
                         <td>grupp-2</td>
                         <td>none</td>
@@ -55,6 +95,12 @@
                         <td>Company AB</td>                    
                     </tr>
                     <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td class="expand">
+                            <span aria-expanded="false" class="material-symbols-outlined">expand_more</span>
+                        </td>                    
                         <td>1.1.5.0/24</td>
                         <td>grupp-2</td>
                         <td>none</td>
@@ -110,4 +156,23 @@
                 </table>
             </div>
         </main>
+        <script>
+            function toggle(btnID, eIDs) {
+                var theRows = document.querySelectorAll(eIDs);
+                var theButton = document.getElementById(btnID);
+                if (theButton.getAttribute("aria-expanded") == "false") {
+                    for (var i = 0; i < theRows.length; i++) {
+                        theRows[i].classList.add("shown");
+                        theRows[i].classList.remove("hidden");
+                    }
+                    theButton.setAttribute("aria-expanded", "true");
+                } else {
+                    for (var i = 0; i < theRows.length; i++) {
+                        theRows[i].classList.add("hidden");
+                        theRows[i].classList.remove("shown");
+                    }
+                    theButton.setAttribute("aria-expanded", "false");
+                }
+            }
+        </script>
 {{ template "footer" }}

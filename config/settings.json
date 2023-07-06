@@ -1,6 +1,6 @@
 {
     "webserver": {
-      "ip": "",
+      "ip": "127.0.0.1",
       "port": 8080
     },
     "sql": {
@@ -8,6 +8,7 @@
         "pass":   "password",
         "net":    "tcp",
         "addr":   "192.168.1.203:3306",
-        "dbname": "recordings"
+        "dbname": "ipam",
+        "parsetime": true        
     }
 }

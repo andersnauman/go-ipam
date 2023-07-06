@@ -37,6 +37,17 @@ header > div.name {
     color: #ffffff;
 }
 
+header > div.user-info,
+header > div.organization > label {
+    font-size: 0.8em;
+}
+
+header > div.user-info {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
 header > div:hover.link-item,
 nav > div:hover {
     background-color: #1e212d;
@@ -47,7 +58,6 @@ header > div .material-symbols-outlined,
 nav > div .material-symbols-outlined {
     font-size: 1.9em;
     font-weight: 200;
-    cursor: pointer;    
 }
 
 header > div.selected,
@@ -69,6 +79,14 @@ nav {
     background-color: #2d3040;
 }
 
+nav > div {
+    cursor: pointer;
+}
+
+nav > div.last {
+    margin-top: auto;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -79,20 +97,21 @@ main {
     width: 100%;
 }
 
-main > * {
+main > div, main > section {
     background-color: white;
     border-radius: 4px;
     border: 1px solid #d9d6d6;    
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-main > div > div:first-child {
+main > * > div:first-child {
     display: flex;
     justify-content: space-between;  
     align-items: center;
     padding: 18px;
 }
-main > div > div:first-child > span:last-child {
+
+main > * > div:first-child > span:last-child {
     font-weight: bold;
     font-size: 1.2em;
     cursor: pointer;
@@ -107,14 +126,16 @@ table {
 th {
     text-align: left;
     font-size: 0.6em;
+    line-height: 1.0em;
     font-weight: bold;
     color: #aaaaaa;
     text-transform: uppercase;
 }
 
 td, th {
-    padding: 13px 20px;
+    padding: 13px 15px;
     border-bottom: 1px solid #d9d6d6;
+    white-space: nowrap;
 }
 
 tr:last-child > td {
@@ -123,10 +144,48 @@ tr:last-child > td {
 
 td {
     font-size: 0.7em;
+    line-height: 1.0em;
 }
 
-td.center {
-    text-align:center
+.center {
+    text-align: center
+}
+
+th.fill-space {
+    width: 100%;
+}
+
+td span[aria-expanded="false"] {
+    transform: rotate(-90deg);
+}
+
+td > span.material-symbols-outlined {
+    font-size: 1.3em;
+}
+
+td.actions > span.material-symbols-outlined {
+    cursor: pointer;
+}
+
+th.expand,
+td.expand {
+    padding: 5px;
+}
+
+td.expand-1 {
+    padding-left: 22.5px;
+}
+
+tr.hidden {
+    display: none;
+}
+
+tr.shown {
+    display: table-row;
+}
+
+tr.free {
+    background-color: #bde2bd;
 }
 
 footer {
@@ -137,6 +196,7 @@ footer {
     text-align: center;
     color: gray;
     font-size: 0.8em;
+    z-index: -1;
 }
 
 a {
@@ -156,4 +216,101 @@ select {
 #map {
     height: 100%;
     width: 100%;
+    z-index: 0;
+}
+
+section.table {
+    width: 50%
+}
+
+section.summary {
+    width: 300px;
+}
+
+section.summary > .description {
+    padding: 0px 20px 10px 18px;
+    font-size: 0.7em;
+    font-style: italic;
+}
+
+section.table > table,
+section.summary > table,
+table {
+    width: 100%;
+}
+
+section.summary > table td {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section.summary > table td:nth-child(2) {
+    text-align: right;
+}
+
+section.map {
+    height: 300px;
+    width: 500px;
+}
+
+td.badge {
+    padding: 13px 11px;
+}
+
+span.badge {
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 4px;
+    font-size: 0.9em;
+}
+
+span.badge-green {
+    background-color: #6da86d;
+    border: 1px solid #3f8c4c;
+}
+
+.dropdown-menu {
+    position: relative;
+    display: inline-block;    
+}
+.dropdown-menu > span {
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    white-space: nowrap;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #d9d6d6;    
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 1;
+}
+
+.dropdown-menu:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-content > div {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-content > div > span.material-symbols-outlined {
+    font-size: 1.0em;
+}
+
+.dropdown-content > div > span:last-child {
+    font-size: 0.8em;
+}
+
+.dropdown-content > div:hover {
+    background-color: #ededed;
+    cursor: pointer;
 }
